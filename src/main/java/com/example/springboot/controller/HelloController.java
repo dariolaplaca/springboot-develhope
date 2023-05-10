@@ -10,4 +10,9 @@ public class HelloController {
 	public ResponseEntity<String> index() {
 		return ResponseEntity.ok("Good morning!");
 	}
+
+	@GetMapping(value = "/greeting")
+	public ResponseEntity<String> greeting(){
+		return ResponseEntity.status(200).body("Good Afternoon!");
+	}
 }
