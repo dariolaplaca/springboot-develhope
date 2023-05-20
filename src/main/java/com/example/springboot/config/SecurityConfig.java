@@ -13,6 +13,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.expression.WebExpressionAuthorizationManager;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -39,6 +41,7 @@ public class SecurityConfig {
                         authorize.requestMatchers("/api/meal/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                                 .and().httpBasic();
+                        http.csrf().disable();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
