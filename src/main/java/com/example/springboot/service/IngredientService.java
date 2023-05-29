@@ -17,4 +17,17 @@ public class IngredientService  {
     public void addIngredient(Ingredient dumpling) {
         ingredientDao.save(dumpling);
     }
+
+    public void removeIngredient(Ingredient ingredient){ ingredientDao.delete(ingredient); }
+
+    public void removeById(Long id){ ingredientDao.deleteById(id);}
+
+    public void replaceItem(Ingredient ingredient, Long id){
+        removeById(id);
+        addIngredient(ingredient);
+        }
+
+    public Ingredient getIngredient(Long id){
+        return ingredientDao.findById(id).orElse(null);
+    }
 }
