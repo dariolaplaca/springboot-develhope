@@ -12,5 +12,6 @@ public interface MealDao extends JpaRepository<Meal, Long> {
     List<Meal> findByName(String name);
     List<Meal> findByPriceGreaterThanAndName(double price, String name);
     List<Meal> findByIsSummerMeal(boolean isSummerMeal);
+    List<Meal> findByIsWinterMeal(boolean isWinterMeal);
 
 }
