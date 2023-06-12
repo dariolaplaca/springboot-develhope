@@ -54,4 +54,7 @@ public class MealController {
         return ResponseEntity.ok("2 + 2 = 4");
     }
 
+    @GetMapping("/winter-meals")
+    public ResponseEntity<List<Meal>> getWinterMeals() { return ResponseEntity.ok(mealService.getWinterMeals());}
+
 }
